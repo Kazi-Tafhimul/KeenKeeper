@@ -2,8 +2,14 @@ import React from 'react';
 import { IoHome } from 'react-icons/io5';
 import { RiTimeLine } from 'react-icons/ri';
 import { TfiStatsUp } from 'react-icons/tfi';
+import { NavLink } from 'react-router';
+
 
 const Navbar = () => {
+   const getNavClass = ({isActive}) => {
+    return isActive ? "btn btn-success text-white" : "btn btn-ghost";
+   };
+  
     return (
        <div className="navbar bg-base-100 shadow-sm">
   <div className="navbar-start">
@@ -14,21 +20,20 @@ const Navbar = () => {
       <ul
         tabIndex="-1"
         className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow ">
-        <li><a>Home</a></li>
+        <li><NavLink to={"/"} className={getNavClass}>Home</NavLink></li>
+        <li><NavLink to={"/timeline"} className={getNavClass}>Timeline</NavLink></li>
+        <li><NavLink to={"/stats"} className={getNavClass}>Stats</NavLink></li>
        
-        <li><a>Timeline</a></li>
-        
-          
-        <li><a>Stats</a></li>
+       
       </ul>
     </div>
     <a className="text-xl"><span className='font-bold'>Keen</span>Keeper</a>
   </div>
   
   <div className="hidden md:flex md:navbar-end">
-    <a className="btn btn-success text-white"><IoHome/>Home</a>
-    <a className="btn"><RiTimeLine/>Timeline</a>
-    <a className="btn"><TfiStatsUp/>Stats</a>
+    <NavLink to={"/"} className={getNavClass}><IoHome/>Home</NavLink>
+    <NavLink to={"/timeline"} className={getNavClass}><RiTimeLine/>Timeline</NavLink>
+    <NavLink to={"/stats"} className={getNavClass}><TfiStatsUp/>Stats</NavLink>
   </div>
 </div>
     );
