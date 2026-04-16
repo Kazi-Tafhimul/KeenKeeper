@@ -5,6 +5,7 @@ import { MdDelete } from 'react-icons/md';
 import { useLoaderData } from 'react-router';
 import FriendsDetailsSummary from './FriendsDetailsSummary';
 import FriendsQuickCheckIN from './FriendsQuickCheckIN';
+import { useTimeline } from '../../context/TimeLineContext';
 
 const FriendsDetail = () => {
     const friend = useLoaderData();
@@ -13,12 +14,22 @@ const FriendsDetail = () => {
         "overdue":"badge-error",
         "almost-due":"badge-warning"
     }
+    const {addTimeLine} = useTimeline();
     const statsData = [
         {title:"Days Since Contact", value:friend.days_since_contact},
         {title:"Goal (Days)", value:friend.goal},
         {title:"Next Due", value: friend.next_due_date}
 
     ]
+    const handleAction = (action) =>{
+        addTimeLine({
+            friendName:friend.name,
+            action:action,
+            date: new Date().toLocaleString()
+        });
+
+
+    }
 
     return (
         
@@ -89,7 +100,7 @@ const FriendsDetail = () => {
                 </div>
                 <h1 className='font-normal'>Connect every <span className='font-bold text-sm'>30 days</span></h1>
             </div>
-            <FriendsQuickCheckIN></FriendsQuickCheckIN>
+            <FriendsQuickCheckIN handleAction = {handleAction}></FriendsQuickCheckIN>
             </div>
             
             
