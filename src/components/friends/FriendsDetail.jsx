@@ -3,6 +3,8 @@ import { FaArchive } from 'react-icons/fa';
 import { HiOutlineBellSnooze } from 'react-icons/hi2';
 import { MdDelete } from 'react-icons/md';
 import { useLoaderData } from 'react-router';
+import FriendsDetailsSummary from './FriendsDetailsSummary';
+import FriendsQuickCheckIN from './FriendsQuickCheckIN';
 
 const FriendsDetail = () => {
     const friend = useLoaderData();
@@ -11,6 +13,12 @@ const FriendsDetail = () => {
         "overdue":"badge-error",
         "almost-due":"badge-warning"
     }
+    const statsData = [
+        {title:"Days Since Contact", value:friend.days_since_contact},
+        {title:"Goal (Days)", value:friend.goal},
+        {title:"Next Due", value: friend.next_due_date}
+
+    ]
 
     return (
         
@@ -59,6 +67,29 @@ const FriendsDetail = () => {
             <MdDelete/>Delete
         </button>
 
+            </div>
+            <div className='flex flex-col space-y-2'>
+
+            <div className='grid grid-cols-1 md:grid-cols-3 gap-2 h-fit'>
+                {
+                    statsData.map((stats,index) => (
+                        <FriendsDetailsSummary
+                        key={index}
+                        title={stats.title}
+                        value={stats.value}
+                        ></FriendsDetailsSummary>
+
+                    ))
+                }
+            </div>
+             <div className='flex flex-col shadow-sm p-10 space-y-3'>
+                <div className='flex justify-between'>
+                    <h1 className='text-xl font-semibold'>Relationship Goal</h1>
+                    <button className='btn'>Edit</button>
+                </div>
+                <h1 className='font-normal'>Connect every <span className='font-bold text-sm'>30 days</span></h1>
+            </div>
+            <FriendsQuickCheckIN></FriendsQuickCheckIN>
             </div>
             
             
