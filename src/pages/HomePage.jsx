@@ -1,7 +1,22 @@
 import React from 'react';
 import { FaPlus } from 'react-icons/fa';
+import { useLoaderData } from 'react-router';
+import SummaryCard from '../components/summarycard/SummaryCard';
+
 
 const HomePage = () => {
+    const friends = useLoaderData();
+    const totalFriends = friends.length;
+    const onTrack = friends.filter(f => f.status === "on-track").length;
+    const needAttention = friends.filter(f => f.status === "overdue").length;
+    const interactionThisMonth = friends.filter(f => f.status === "almost-due").length;
+    const statsData = [
+        {title:"Total Friends", value: totalFriends},
+        {title: "On Track", value: onTrack},
+        {title:"Need Attention", value:needAttention},
+        {title:"Almost Due", value:interactionThisMonth}
+    ]
+
     return (
         <div>
             <div className='flex flex-col justify-center items-center mt-20'>
@@ -10,6 +25,17 @@ const HomePage = () => {
 relationships that matter most.</p>
                <button className='btn bg-green-700 text-white mt-4 border rounded-md hover:bg-green-500'><FaPlus/>Add a friend</button>
             </div>
+            <div className='grid grid-cols-2 md:grid-cols-4 gap-2 mt-8 mx-6'>
+                {
+                    statsData.map((stat,index) => (
+                        <SummaryCard 
+                        key={index}
+                        title={stat.title}
+                        value={stat.value}></SummaryCard>
+                    ))
+                }
+            </div>
+           
             
         </div>
     );
