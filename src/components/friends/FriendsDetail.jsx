@@ -5,7 +5,9 @@ import { MdDelete } from 'react-icons/md';
 import { useLoaderData } from 'react-router';
 import FriendsDetailsSummary from './FriendsDetailsSummary';
 import FriendsQuickCheckIN from './FriendsQuickCheckIN';
-import { useTimeline } from '../../context/TimeLineContext';
+
+import { toast } from 'react-toastify';
+import { useTimeline } from '../../context/useTimeline';
 
 const FriendsDetail = () => {
     const friend = useLoaderData();
@@ -27,6 +29,7 @@ const FriendsDetail = () => {
             action:action,
             date: new Date().toLocaleString()
         });
+        toast.success(`${action} with ${friend.name}`)
 
 
     }
