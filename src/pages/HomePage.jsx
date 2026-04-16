@@ -2,6 +2,7 @@ import React from 'react';
 import { FaPlus } from 'react-icons/fa';
 import { useLoaderData } from 'react-router';
 import SummaryCard from '../components/summarycard/SummaryCard';
+import FriendsCard from '../components/friends/FriendsCard';
 
 
 const HomePage = () => {
@@ -35,6 +36,21 @@ relationships that matter most.</p>
                     ))
                 }
             </div>
+            <div>
+                <h1 className='text-2xl font-bold mt-20 p-8'>Your Friends</h1>
+            </div>
+             <div className='grid grid-cols-2 md:grid-cols-4 gap-2 mt-8 mx-6'>
+                
+                {
+                    friends.map((friend,index) => (
+                        <FriendsCard
+                        key={index}
+                        friend = {friend}></FriendsCard>
+                    ))
+                }
+            </div>
+
+
            
             
         </div>
