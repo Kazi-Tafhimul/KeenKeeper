@@ -8,7 +8,7 @@ Your personal shelf of meaningful connections. Browse, tend, and nurture the rel
 
 ## 🔗 Live Demo
 
-[Live Site Link](https://your-live-link-here.com)
+[Live Site Link](fancy-daifuku-18fbf3.netlify.app)
 
 ---
 
