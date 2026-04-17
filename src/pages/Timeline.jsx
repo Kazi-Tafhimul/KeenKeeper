@@ -14,8 +14,10 @@ const Timeline = () => {
     }
     if(timeLine.length === 0){
         return (
-            <div className='font-extrabold text-3xl text-center flex justify-center items-center my-16'>
-                No interaction yet
+           <div className='flex justify-center items-center min-h-screen'>
+                <h1 className='text-3xl font-bold'>
+                    No interactions to show yet
+                </h1>
             </div>
         )
     }
