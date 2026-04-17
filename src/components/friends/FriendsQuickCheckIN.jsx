@@ -7,7 +7,7 @@ const FriendsQuickCheckIN = ({handleAction}) => {
     return (
         <div className='flex flex-col shadow-sm space-y-10 p-10'>
             <h1 className='font-normal text-xl'>Quick Check-In</h1>
-            <div className='flex justify-between'>
+            <div className='flex flex-col md:flex-row justify-between'>
                 <button onClick={()=>handleAction("Call")} className='btn flex-col p-10'>
                     <img src={callImage} className='w-5 md:w-20 h-5 object-contain' alt="" />
                     Call
