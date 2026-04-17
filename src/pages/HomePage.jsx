@@ -1,12 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FaPlus } from 'react-icons/fa';
-import { useLoaderData } from 'react-router';
+//import { useLoaderData } from 'react-router';
 import SummaryCard from '../components/summarycard/SummaryCard';
 import FriendsCard from '../components/friends/FriendsCard';
+import { PacmanLoader } from 'react-spinners';
 
 
 const HomePage = () => {
-    const friends = useLoaderData();
+   const [friends, setFriends] = useState([]);
+   const [loading, setLoading] = useState(true);
+   useEffect(() => {
+    fetch('/friends.json')
+    .then((res) => res.json())
+    .then((data) =>{
+        setFriends(data);
+        setLoading(false);
+    })
+   },[]);
+
+
     
     const totalFriends = friends.length;
     const onTrack = friends.filter(f => f.status === "on-track").length;
@@ -38,7 +50,16 @@ relationships that matter most.</p>
                     ))
                 }
             </div>
-            <div>
+            {
+                loading ? (
+                    <div className='flex justify-center items-center py-20'>
+
+                        <PacmanLoader/>
+                    </div>
+                ):(
+                <>
+                
+                <div>
                 <h1 className='text-2xl font-bold mt-20 p-8'>Your Friends</h1>
             </div>
              <div className='grid grid-cols-2 md:grid-cols-4 gap-2 mt-8 mx-6 p-10'>
@@ -51,6 +72,10 @@ relationships that matter most.</p>
                     ))
                 }
             </div>
+            </>
+                )
+            }
+            
 
 
            
