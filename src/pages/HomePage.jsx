@@ -7,6 +7,7 @@ import FriendsCard from '../components/friends/FriendsCard';
 
 const HomePage = () => {
     const friends = useLoaderData();
+    
     const totalFriends = friends.length;
     const onTrack = friends.filter(f => f.status === "on-track").length;
     const needAttention = friends.filter(f => f.status === "overdue").length;
@@ -17,6 +18,7 @@ const HomePage = () => {
         {title:"Need Attention", value:needAttention},
         {title:"Almost Due", value:interactionThisMonth}
     ]
+    
 
     return (
         <div>
@@ -39,7 +41,7 @@ relationships that matter most.</p>
             <div>
                 <h1 className='text-2xl font-bold mt-20 p-8'>Your Friends</h1>
             </div>
-             <div className='grid grid-cols-2 md:grid-cols-4 gap-2 mt-8 mx-6'>
+             <div className='grid grid-cols-2 md:grid-cols-4 gap-2 mt-8 mx-6 p-10'>
                 
                 {
                     friends.map((friend,index) => (

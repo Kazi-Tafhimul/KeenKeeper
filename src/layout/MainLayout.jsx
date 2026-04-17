@@ -7,10 +7,15 @@ import { ToastContainer } from 'react-toastify';
 
 const MainLayout = () => {
     return (
-        <div>
+        <div className='flex flex-col min-h-screen'>
             <TimeLineProvider>
             <Navbar></Navbar>
+            <div className='grow'>
+
             <Outlet></Outlet>
+            </div>
+
+            
             <Footer></Footer>
             <ToastContainer></ToastContainer>
             </TimeLineProvider>
