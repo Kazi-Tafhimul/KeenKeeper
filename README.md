@@ -20,72 +20,14 @@ KeenKeeper is a friend relationship management app built with React. It helps yo
 
 ## 🛠️ Technologies Used
 
-|
- Technology 
-|
- Purpose 
-|
-|
----
-|
----
-|
-|
-**
-React 19
-**
-|
- Frontend UI library 
-|
-|
-**
-React Router v7
-**
-|
- Client-side routing with loaders 
-|
-|
-**
-Tailwind CSS v4
-**
-|
- Utility-first styling 
-|
-|
-**
-DaisyUI
-**
-|
- Pre-built UI components 
-|
-|
-**
-Recharts
-**
-|
- Data visualization (Pie Chart) 
-|
-|
-**
-React Toastify
-**
-|
- Toast notifications 
-|
-|
-**
-React Icons
-**
-|
- Icon library 
-|
-|
-**
-Context API
-**
-|
- Global state management 
-|
+- **React 19** — Frontend UI library
+- **React Router v7** — Client-side routing with loaders
+- **Tailwind CSS v4** — Utility-first styling
+- **DaisyUI** — Pre-built UI components
+- **Recharts** — Data visualization (Pie Chart)
+- **React Toastify** — Toast notifications
+- **React Icons** — Icon library
+- **Context API** — Global state management
 
 ---
 
